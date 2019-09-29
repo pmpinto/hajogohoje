@@ -7,7 +7,7 @@ module.exports = {
         path: path.resolve(__dirname, "assets/javascript/"),
     },
     devServer: {
-        contentBase: path.join(__dirname, "./"),
+        contentBase: path.join(__dirname, "/"),
         compress: true,
         port: 9000,
     },
