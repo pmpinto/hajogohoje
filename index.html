@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+        <meta charset="utf-8" />
+        <title>Estádio do Dragão | Há jogo hoje?</title>
+        <meta
+            name="description"
+            content="Um pequeno site de football, para quem não quer saber de football."
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <link rel="manifest" href="site.webmanifest" />
+        <link rel="apple-touch-icon" href="icon.png" />
+
+        <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
+
+        <link rel="stylesheet" href="assets/css/vendor/normalize.css" />
+        <link rel="stylesheet" href="assets/css/main.css" />
+
+        <meta name="theme-color" content="#3b5e6b" />
+    </head>
+
+    <body class="app">
+        <!--[if IE]>
+            <p class="browserupgrade">
+                You are using an <strong>outdated</strong> browser. Please
+                <a href="https://browsehappy.com/">upgrade your browser</a> to improve your
+                experience and security.
+            </p>
+        <![endif]-->
+
+        <div class="app__loading">A carregar…</div>
+
+        <main class="app__main">
+            <h1 class="app__heading">Há jogo hoje?</h1>
+            <p class="app__location js-location"></p>
+
+            <h2 class="app__answer js-answer"></h2>
+
+            <div class="app__details">
+                <div class="app__teams">
+                    <p class="app__team js-hometeam"></p>
+                    <p class="app__team-separator">vs</p>
+                    <p class="app__team js-visitorteam"></p>
+                </div>
+
+                <p class="app__time"><span class="js-time"></span></p>
+            </div>
+        </main>
+
+        <aside class="app__other-games">
+            <h2 class="app__heading">Outros jogos para hoje</h2>
+            <ol class="app__game-list js-othergames"></ol>
+        </aside>
+
+        <script src="bundle.js"></script>
+
+        <script>
+            window.ga = function() {
+                ga.q.push(arguments)
+            }
+            ga.q = []
+            ga.l = +new Date()
+            ga("create", "UA-13159742-3", "auto")
+            ga("set", "transport", "beacon")
+            ga("send", "pageview")
+        </script>
+        <script src="https://www.google-analytics.com/analytics.js" async></script>
+    </body>
+</html>

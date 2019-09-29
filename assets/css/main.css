@@ -1,0 +1,132 @@
+@import url("imports/fonts.css");
+@import url("imports/variables.css");
+
+/* App */
+
+.app {
+    font-family: "Nunito Sans", sans-serif;
+    background-color: var(--color-white);
+    color: var(--color-blue);
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    font-smooth: always;
+    height: 100vh;
+}
+
+.app--loaded .app__loading {
+    display: none;
+}
+
+.app--loaded .app__main {
+    visibility: visible;
+}
+
+.app--multiple-games .app__other-games {
+    display: flex;
+}
+
+.app--no-game-for-today .app__details,
+.app--no-game-for-today .app__other-games {
+    display: none;
+}
+
+/* Loading */
+
+.app__loading {
+    background-color: var(--color-blue);
+    color: var(--color-white);
+    width: 100%;
+    text-align: center;
+    padding: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Main */
+
+.app__main {
+    visibility: hidden;
+    min-height: 80vh;
+    flex: 1;
+    border-bottom: 1px solid var(--color-green);
+}
+
+.app__main,
+.app__details {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.app__teams {
+    display: flex;
+    align-items: center;
+}
+
+.app__team-separator {
+    margin: 0 1rem;
+}
+
+.app__team {
+    border-radius: 0.2rem;
+    background-color: var(--color-blue);
+    color: var(--color-white);
+    font-weight: 700;
+    padding: 0.5rem 1rem;
+    margin: 0;
+}
+
+.app__location {
+    margin: 0;
+}
+
+.app__heading,
+.app__answer {
+    margin: 0;
+}
+
+.app__heading {
+    margin-bottom: 1rem;
+    font-weight: 400;
+}
+
+.app__answer {
+    font-size: 4rem;
+    margin: 5rem 0;
+}
+
+.app__answer--positive {
+    color: var(--color-green);
+}
+
+.app__answer--negative {
+    color: var(--color-red);
+}
+
+/* Other games list */
+
+.app__other-games {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 6vh 0;
+}
+
+.app__game-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.app__other-game {
+    margin: 0.5rem 0;
+}
