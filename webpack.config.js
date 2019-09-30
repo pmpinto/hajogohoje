@@ -1,15 +1,15 @@
 const path = require("path")
 
 module.exports = {
-    entry: ["./assets/javascript/index.js"],
+    entry: "./assets/javascript/index.js",
     output: {
         filename: "bundle.js",
-        path: path.resolve(__dirname, "assets/javascript/"),
+        path: path.resolve(__dirname, "assets/javascript"),
     },
     devServer: {
-        contentBase: path.join(__dirname, "/"),
         compress: true,
         port: 9000,
+        writeToDisk: true,
     },
     module: {
         rules: [

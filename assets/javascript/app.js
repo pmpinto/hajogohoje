@@ -1,23 +1,33 @@
 const app = {
+    baseSourceUrl: "https://www.futebol365.pt/estadio/",
+    baseCorsUrl: "https://cors-anywhere.herokuapp.com/",
     locations: [
         {
             name: "Estádio do Dragão",
-            city: "Porto",
-            url: "https://www.futebol365.pt/estadio/300/",
+            id: 300,
         },
         {
             name: "Estádio do Rio Ave",
-            city: "Vila do Conde",
-            url: "https://www.futebol365.pt/estadio/727/",
+            id: 727,
         },
     ],
 
     getData: async () => {
-        return fetch(`https://cors-anywhere.herokuapp.com/${app.activeLocation.url}`, {
+        return fetch(`${app.baseCorsUrl}${app.baseSourceUrl}${app.activeLocation.id}`, {
             headers: {
                 "Content-Type": "application/x-www-form-urlencoded",
             },
-        }).then(response => response.text())
+        })
+            .then(response => {
+                if (response.ok) {
+                    return response.text()
+                }
+
+                return null
+            })
+            .catch(error => {
+                console.log("error >", error)
+            })
     },
 
     parseContent: data => {
@@ -116,19 +126,25 @@ const app = {
             homeTeam: document.querySelector(".js-hometeam"),
             visitorTeam: document.querySelector(".js-visitorteam"),
             otherGames: document.querySelector(".js-othergames"),
+            loading: document.querySelector(".js-loading"),
         }
 
         app.getData().then(data => {
-            app.elements.body.classList.add("app--loaded")
-            const games = app.parseContent(data)
+            if (data) {
+                app.elements.body.classList.add("app--loaded")
 
-            app.games = app.createSchedule(games) || []
-            app.gamesForToday = app.getGamesForToday(app.games)
+                const games = app.parseContent(data)
 
-            if (app.gamesForToday.length) {
-                app.displayGamesForToday(app.gamesForToday)
+                app.games = app.createSchedule(games) || []
+                app.gamesForToday = app.getGamesForToday(app.games)
+
+                if (app.gamesForToday.length) {
+                    app.displayGamesForToday(app.gamesForToday)
+                } else {
+                    app.displayNoGame()
+                }
             } else {
-                app.displayNoGame()
+                app.elements.loading.innerText = "Erro no servidor…"
             }
         })
     },
