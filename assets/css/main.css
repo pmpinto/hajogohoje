@@ -8,51 +8,67 @@
     background-color: var(--color-white);
     color: var(--color-blue);
     font-size: 24px;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
     font-smooth: always;
-    height: 100vh;
+    min-height: 100vh;
 }
 
-.app--loaded .app__loading {
-    display: none;
+@media screen and (min-width: 768px) {
+    .app {
+        grid-template-columns: 10vw 1fr 10vw;
+    }
 }
 
-.app--loaded .app__main {
-    visibility: visible;
+.app--is-loading .app__loading {
+    display: flex;
 }
 
 .app--multiple-games .app__other-games {
     display: flex;
 }
 
-.app--no-game-for-today .app__details,
-.app--no-game-for-today .app__other-games {
-    display: none;
+.app--has-answer .app__answer {
+    display: block;
 }
 
-/* Loading */
+/* Loading / Error */
+
+.app__loading,
+.app__error {
+    width: 100%;
+    color: var(--color-white);
+    text-align: center;
+    padding: 1.5rem;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    box-sizing: border-box;
+}
 
 .app__loading {
     background-color: var(--color-blue);
-    color: var(--color-white);
-    width: 100%;
-    text-align: center;
-    padding: 3rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+}
+
+.app__error {
+    background-color: var(--color-red);
 }
 
 /* Main */
 
 .app__main {
-    visibility: hidden;
     min-height: 80vh;
-    flex: 1;
-    border-bottom: 1px solid var(--color-green);
+    grid-column: 1;
+}
+
+@media screen and (min-width: 768px) {
+    .app__main {
+        grid-column: 2;
+    }
 }
 
 .app__main,
@@ -65,9 +81,25 @@
     flex-direction: column;
 }
 
+.app__details {
+    display: none;
+}
+
 .app__teams {
     display: flex;
     align-items: center;
+    background-color: var(--color-blue);
+    color: var(--color-white);
+    flex-direction: column;
+    width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+    .app__teams {
+        flex-direction: row;
+        border-radius: 0.2rem;
+        width: auto;
+    }
 }
 
 .app__team-separator {
@@ -75,16 +107,36 @@
 }
 
 .app__team {
-    border-radius: 0.2rem;
-    background-color: var(--color-blue);
-    color: var(--color-white);
     font-weight: 700;
     padding: 0.5rem 1rem;
     margin: 0;
 }
 
-.app__location {
+.app__time {
     margin: 0;
+    margin-top: 0.5rem;
+    padding: 0.3rem 1rem;
+    text-align: center;
+    background-color: var(--color-blue);
+    color: var(--color-white);
+    border-radius: 0.2rem;
+}
+
+.app__locations {
+    font-size: 1rem;
+    color: var(--color-blue);
+    border: 1px solid var(--color-blue);
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+    background-color: var(--color-white);
+    width: 80%;
+    text-align-last: center;
+}
+
+@media screen and (min-width: 768px) {
+    .app__locations {
+        font-size: 2rem;
+    }
 }
 
 .app__heading,
@@ -95,38 +147,50 @@
 .app__heading {
     margin-bottom: 1rem;
     font-weight: 400;
+    font-size: 2rem;
+    text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+    .app__heading {
+        font-size: 4rem;
+    }
+}
+
+.app__today {
+    margin: 0;
+    font-weight: 400;
+    font-size: 1rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+@media screen and (min-width: 768px) {
+    .app__today {
+        font-size: 2rem;
+    }
 }
 
 .app__answer {
-    font-size: 4rem;
+    font-size: 3rem;
     margin: 5rem 0;
+    display: none;
+}
+
+@media screen and (min-width: 768px) {
+    .app__answer {
+        font-size: 6rem;
+    }
 }
 
 .app__answer--positive {
-    color: var(--color-green);
-}
-
-.app__answer--negative {
     color: var(--color-red);
 }
 
-/* Other games list */
-
-.app__other-games {
-    display: none;
-    width: 100%;
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-items: center;
-    padding: 6vh 0;
+.app__answer--positive + .app__details {
+    display: flex;
 }
 
-.app__game-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.app__other-game {
-    margin: 0.5rem 0;
+.app__answer--negative {
+    color: var(--color-green);
 }
