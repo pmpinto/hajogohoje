@@ -218,7 +218,7 @@ const app = {
     },
 
     updateURL: (id, title) => {
-        const newURL = `${window.location.origin}?estadio=${id}`
+        const newURL = `${window.location.origin}${window.location.pathname}?estadio=${id}`
         console.log(newURL, title, id)
         window.history.pushState(
             {
