@@ -16,7 +16,7 @@ Sou um designer / front-end developer do Porto, Portugal, e não estou minimamen
 
 # Doações
 
-Se acharem piada ao projecto e quiserem contribuir ou apoiar de alguma forma, estejam à vontade para doar algumas moedas. Irão reverter a favor de cacau em barra 🍫😇
+Se acharem piada ao projecto e quiserem contribuir ou apoiar de alguma forma, estejam à vontade para doar algumas moedas. Irão reverter a favor de cacau em barra 🍫😇  
 Obrigado 🙏
 
 [![](https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif)](https://www.paypal.me/pmpintopt)
