@@ -194,3 +194,46 @@
 .app__answer--negative {
     color: var(--color-green);
 }
+
+/* Octo icon: http://tholman.com/github-corners/ */
+
+.app__octo .octo-arm {
+    transform-origin: 130px 106px;
+}
+
+.app__octo:hover .octo-arm {
+    animation: octocat-wave 560ms ease-in-out;
+}
+
+@keyframes octocat-wave {
+    0%,
+    100% {
+        transform: rotate(0);
+    }
+    20%,
+    60% {
+        transform: rotate(-25deg);
+    }
+    40%,
+    80% {
+        transform: rotate(10deg);
+    }
+}
+
+@media (max-width: 500px) {
+    .app__octo:hover .octo-arm {
+        animation: none;
+    }
+    .app__octo .octo-arm {
+        animation: octocat-wave 560ms ease-in-out;
+    }
+}
+
+.app__octo-icon {
+    fill: #3b5e6b;
+    color: #e6ebe0;
+    position: absolute;
+    top: 0;
+    border: 0;
+    right: 0;
+}
