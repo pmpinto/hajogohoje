@@ -197,6 +197,12 @@
 
 /* Octo icon: http://tholman.com/github-corners/ */
 
+.app__octo {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
 .app__octo .octo-arm {
     transform-origin: 130px 106px;
 }
@@ -232,8 +238,5 @@
 .app__octo-icon {
     fill: #3b5e6b;
     color: #e6ebe0;
-    position: absolute;
-    top: 0;
     border: 0;
-    right: 0;
 }
