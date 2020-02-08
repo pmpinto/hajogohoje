@@ -8,6 +8,10 @@ Para quem, tal como eu, só se preocupa com o futebol, no sentido de perceber se
 
 A resposta será bastante clara e com apenas a informação que nos interessa: local e hora do jogo, bem como as equipas que participam.
 
+# Imagens
+
+<img src="./screenshots/hajogohoje-ha.png" width="45%"> <img src="./screenshots/hajogohoje-nao.png" width="45%">
+
 # Autor
 
 Sou um designer / front-end developer do Porto, Portugal, e não estou minimamente interessado no assunto futebol.
