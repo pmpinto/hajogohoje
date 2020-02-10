@@ -89,6 +89,7 @@ const app = {
             },
         })
             .then(response => {
+                console.log(response)
                 if (response.ok) {
                     return response.text()
                 }
